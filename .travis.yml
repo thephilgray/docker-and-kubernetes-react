@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t thephilgray/docker-and-kubernetes-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true thephilgray/docker-and-kubernetes-react npm run test
